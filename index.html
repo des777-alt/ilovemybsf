@@ -1,0 +1,764 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HopeOS ♡</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;1,600&display=swap');
+
+:root {
+  --pink: #f5cbd8;
+  --pink-dark: #eaa9bf;
+  --pink-light: #fff0f5;
+  --grey: #77747e;
+  --dark: #36333c;
+  --white: #fffafa;
+  --border: #e8dce1;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: #f8e9ef;
+  color: var(--dark);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* DESKTOP BACKGROUND */
+
+.desktop {
+  min-height: 100vh;
+  padding: 30px;
+  padding-bottom: 95px;
+  position: relative;
+  background:
+    radial-gradient(circle at 15% 15%, #fff6fa 0, transparent 35%),
+    radial-gradient(circle at 85% 80%, #e7dce8 0, transparent 40%),
+    linear-gradient(135deg, #f6dce6, #e8e5ed);
+}
+
+.heart {
+  position: fixed;
+  bottom: -30px;
+  color: #e7a9c0;
+  opacity: .5;
+  pointer-events: none;
+  animation: floatUp linear forwards;
+  z-index: 0;
+}
+
+@keyframes floatUp {
+  to {
+    transform: translateY(-110vh) rotate(30deg);
+    opacity: 0;
+  }
+}
+
+/* TOP BAR */
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255,255,255,.65);
+  border: 1px solid rgba(255,255,255,.9);
+  border-radius: 18px;
+  padding: 14px 20px;
+  backdrop-filter: blur(15px);
+  margin-bottom: 45px;
+}
+
+.logo {
+  font-weight: 800;
+  letter-spacing: -1px;
+  font-size: 18px;
+}
+
+.logo span {
+  color: #d88da9;
+}
+
+.status {
+  font-size: 12px;
+  color: #777;
+}
+
+/* WELCOME */
+
+.welcome {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 35px;
+  position: relative;
+  z-index: 1;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 10px;
+  font-weight: 700;
+  color: #b57d94;
+  margin-bottom: 15px;
+}
+
+h1 {
+  font-size: clamp(38px, 8vw, 65px);
+  letter-spacing: -3px;
+  line-height: 1.1;
+}
+
+h1 span {
+  color: #d58da9;
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+}
+
+.subtitle {
+  margin-top: 15px;
+  color: #77717d;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+/* MAIN LAYOUT */
+
+.content {
+  max-width: 1000px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.panel {
+  background: rgba(255,255,255,.75);
+  border: 1px solid white;
+  border-radius: 22px;
+  padding: 22px;
+  box-shadow: 0 12px 35px rgba(105,70,90,.06);
+  backdrop-filter: blur(15px);
+}
+
+.panel-heading {
+  font-weight: 800;
+  font-size: 15px;
+  margin-bottom: 7px;
+}
+
+.panel-sub {
+  font-size: 12px;
+  color: #88818c;
+  margin-bottom: 20px;
+}
+
+/* BUTTONS */
+
+.button-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.action {
+  padding: 19px 12px;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  background: #fff8fb;
+  cursor: pointer;
+  text-align: left;
+  transition: .25s;
+  color: var(--dark);
+  font-family: inherit;
+}
+
+.action:hover {
+  transform: translateY(-4px);
+  background: #fce6ef;
+  border-color: #e9b5c8;
+}
+
+.action .emoji {
+  display: block;
+  font-size: 25px;
+  margin-bottom: 10px;
+}
+
+.action strong {
+  display: block;
+  font-size: 12px;
+}
+
+.action small {
+  color: #928a94;
+  font-size: 10px;
+}
+
+/* NOTIFICATIONS */
+
+.notification {
+  background: #fff6fa;
+  border: 1px solid #f0dce5;
+  border-radius: 14px;
+  padding: 13px;
+  margin-bottom: 11px;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.notification b {
+  display: block;
+  margin-bottom: 3px;
+  font-size: 11px;
+}
+
+.notification span {
+  color: #88818c;
+}
+
+/* COMPLIMENT */
+
+.compliment {
+  margin-top: 20px;
+  background: #f8e9ef;
+  padding: 18px;
+  border-radius: 16px;
+  text-align: center;
+}
+
+.compliment p {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 17px;
+  min-height: 50px;
+  display: grid;
+  place-items: center;
+  line-height: 1.5;
+}
+
+.pill {
+  margin-top: 12px;
+  background: #d994af;
+  border: none;
+  padding: 10px 17px;
+  border-radius: 30px;
+  color: white;
+  font-weight: 700;
+  font-family: inherit;
+  font-size: 11px;
+  cursor: pointer;
+  transition: .2s;
+}
+
+.pill:hover {
+  background: #bf7896;
+  transform: scale(1.04);
+}
+
+/* LETTER */
+
+.letter-section {
+  max-width: 1000px;
+  margin: 20px auto;
+  position: relative;
+  z-index: 1;
+}
+
+.letter-card {
+  background: #fffafa;
+  border-radius: 22px;
+  padding: 25px;
+  text-align: center;
+  border: 1px solid white;
+}
+
+.letter-icon {
+  font-size: 35px;
+  margin-bottom: 10px;
+}
+
+.letter-card h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 25px;
+}
+
+.letter-card p {
+  font-size: 12px;
+  color: #8d8590;
+  margin-top: 8px;
+}
+
+/* POPUP */
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(50,35,48,.35);
+  backdrop-filter: blur(6px);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  z-index: 10;
+}
+
+.overlay.active {
+  display: flex;
+}
+
+.popup {
+  width: 100%;
+  max-width: 390px;
+  background: #fffafa;
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: 0 20px 70px rgba(40,20,40,.2);
+  animation: appear .3s ease;
+}
+
+@keyframes appear {
+  from { transform: scale(.85); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.popup-header {
+  background: #f3dce6;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  font-weight: 800;
+  font-size: 12px;
+}
+
+.close {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 17px;
+  color: #555;
+}
+
+.popup-body {
+  padding: 30px 23px;
+  text-align: center;
+}
+
+.popup-body .big {
+  font-size: 40px;
+  margin-bottom: 15px;
+}
+
+.popup-body h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.popup-body p {
+  color: #817984;
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.popup-footer {
+  padding: 0 20px 25px;
+  text-align: center;
+}
+
+/* LETTER CONTENT */
+
+.letter {
+  text-align: left;
+  line-height: 1.9 !important;
+  white-space: pre-line;
+  color: #514a55 !important;
+  font-size: 13px !important;
+}
+
+/* TASKBAR */
+
+.taskbar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 13px 22px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255,250,252,.85);
+  backdrop-filter: blur(20px);
+  border-top: 1px solid white;
+  z-index: 5;
+}
+
+.taskbar button {
+  border: none;
+  background: #f2d9e4;
+  color: #5c4653;
+  padding: 10px 17px;
+  border-radius: 12px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.taskbar span {
+  font-size: 11px;
+  color: #817984;
+}
+
+/* MOBILE */
+
+@media(max-width: 700px) {
+  .desktop { padding: 17px; padding-bottom: 100px; }
+  .topbar { margin-bottom: 35px; }
+  .content { grid-template-columns: 1fr; }
+  .welcome { margin-bottom: 30px; }
+  h1 { letter-spacing: -2px; }
+  .panel { padding: 18px; }
+  .taskbar { padding: 12px 15px; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="desktop">
+
+  <header class="topbar">
+    <div class="logo">Hope<span>OS</span> ♡</div>
+    <div class="status">● Everything is okay-ish</div>
+  </header>
+
+  <section class="welcome">
+    <div class="eyebrow">A very important website</div>
+    <h1>Hey, <span>Hope.</span> ♡</h1>
+    <p class="subtitle">
+      Welcome to your very own corner of the internet.
+      <br>
+      Nothing productive happens here. That's the point.
+    </p>
+  </section>
+
+  <main class="content">
+
+    <section class="panel">
+      <div class="panel-heading">The Nonsense Department</div>
+      <div class="panel-sub">Select your current situation below.</div>
+
+      <div class="button-grid">
+
+        <button class="action" onclick="respond('sad')">
+          <span class="emoji">🥺</span>
+          <strong>I'm sad</strong>
+          <small>Request emotional support</small>
+        </button>
+
+        <button class="action" onclick="respond('bored')">
+          <span class="emoji">🫠</span>
+          <strong>I'm bored</strong>
+          <small>Find something to do</small>
+        </button>
+
+        <button class="action" onclick="respond('attention')">
+          <span class="emoji">🙄</span>
+          <strong>I want attention</strong>
+          <small>Very urgent matter</small>
+        </button>
+
+        <button class="action" onclick="respond('miss')">
+          <span class="emoji">💌</span>
+          <strong>I miss someone</strong>
+          <small>Hmm. Interesting.</small>
+        </button>
+
+      </div>
+
+      <div class="compliment">
+        <p id="compliment">
+          Loading your daily dose of appreciation...
+        </p>
+        <button class="pill" onclick="newCompliment()">
+          Give me another ♡
+        </button>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="panel-heading">System Notifications</div>
+      <div class="panel-sub">Important updates from absolutely nobody.</div>
+
+      <div class="notification">
+        <b>♡ SYSTEM UPDATE</b>
+        <span>Hope has successfully made someone's day better just by existing.</span>
+      </div>
+
+      <div class="notification">
+        <b>⚠️ WARNING</b>
+        <span>Excessive levels of cuteness detected. Please proceed carefully.</span>
+      </div>
+
+      <div class="notification">
+        <b>📌 REMINDER</b>
+        <span>You are allowed to have bad days. You don't have to figure everything out today.</span>
+      </div>
+
+      <div class="notification">
+        <b>📡 INCOMING TRANSMISSION</b>
+        <span>Someone would like to remind you that you're appreciated. That's all.</span>
+      </div>
+
+      <button class="pill" onclick="systemError()" style="width:100%">
+        Check for system updates
+      </button>
+    </section>
+
+  </main>
+
+  <section class="letter-section">
+    <div class="letter-card">
+      <div class="letter-icon">💌</div>
+      <h2>A little something for you.</h2>
+      <p>Not a system notification. This one's actually important.</p>
+      <button class="pill" onclick="openLetter()">
+        Open your letter ♡
+      </button>
+    </div>
+  </section>
+
+</div>
+
+<!-- TASKBAR -->
+
+<footer class="taskbar">
+  <button onclick="randomPopup()">♡ HopeOS</button>
+  <span>Made with questionable amounts of affection.</span>
+  <span id="clock">00:00</span>
+</footer>
+
+<!-- POPUP -->
+
+<div class="overlay" id="overlay">
+  <div class="popup">
+    <div class="popup-header">
+      <span id="popupTitle">HopeOS Notification</span>
+      <button class="close" onclick="closePopup()">×</button>
+    </div>
+
+    <div class="popup-body">
+      <div class="big" id="popupEmoji">♡</div>
+      <h3 id="popupHeading">Hello, Hope.</h3>
+      <p id="popupText">Welcome to HopeOS.</p>
+    </div>
+
+    <div class="popup-footer">
+      <button class="pill" id="popupButton" onclick="closePopup()">
+        Okay, I guess ♡
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+
+// RANDOM COMPLIMENTS
+
+const compliments = [
+  "You're genuinely one of my favourite people.",
+  "I hope you know how lovely you are.",
+  "Your existence is actually a pretty good thing.",
+  "Someone is very lucky to know you. Just saying.",
+  "You deserve the same kindness you give everyone else.",
+  "You're a little ridiculous, but that's part of the charm.",
+  "The world is slightly better with you in it.",
+  "In case nobody has told you today, you're appreciated.",
+  "You're doing better than you think.",
+  "I hope something makes you laugh today."
+];
+
+function newCompliment() {
+  const p = document.getElementById("compliment");
+  let next;
+
+  do {
+    next = compliments[Math.floor(Math.random() * compliments.length)];
+  } while (next === p.textContent && compliments.length > 1);
+
+  p.style.opacity = 0;
+
+  setTimeout(() => {
+    p.textContent = next;
+    p.style.opacity = 1;
+  }, 200);
+}
+
+newCompliment();
+
+
+// POPUP SYSTEM
+
+function popup(title, emoji, heading, message, button = "Okay ♡") {
+  document.getElementById("popupTitle").textContent = title;
+  document.getElementById("popupEmoji").textContent = emoji;
+  document.getElementById("popupHeading").textContent = heading;
+  document.getElementById("popupText").textContent = message;
+  document.getElementById("popupButton").textContent = button;
+
+  document.getElementById("overlay").classList.add("active");
+}
+
+function closePopup() {
+  document.getElementById("overlay").classList.remove("active");
+}
+
+
+// SITUATION RESPONSES
+
+function respond(type) {
+
+  const responses = {
+
+    sad: [
+      ["🥺", "Come here.", "You don't have to pretend you're okay all the time. Take a breath. One thing at a time, alright? ♡"],
+      ["🫂", "Virtual hug dispatched.", "Your package contains one hug, unlimited patience and absolutely no judgement."],
+      ["🌷", "A little reminder.", "Even flowers have days when they don't bloom. You're allowed those days too."]
+    ],
+
+    bored: [
+      ["🍿", "Entertainment department.", "Unfortunately, we have absolutely no budget. You're going to have to entertain yourself."],
+      ["🎮", "Mission assigned.", "Your mission is to find something that makes you laugh in the next five minutes."],
+      ["🐈", "Breaking news.", "A cat somewhere just knocked something off a table. You're welcome."]
+    ],
+
+    attention: [
+      ["🚨", "PRIORITY ALERT", "Hope requires attention. This is not a drill. Repeat: THIS IS NOT A DRILL."],
+      ["💗", "Attention granted.", "Congratulations. You have successfully acquired unlimited virtual attention."],
+      ["🙄", "We knew it.", "You could have just said hello, you know. Anyway, hi."]
+    ],
+
+    miss: [
+      ["💌", "Interesting development.", "We have detected signs of missing someone. Unfortunately, this system cannot teleport people."],
+      ["📡", "Signal received.", "Somebody might be thinking about you too. Just a thought."],
+      ["🥹", "Aww.", "Maybe send them a message. Life is too short for unnecessary pretending."]
+    ]
+
+  };
+
+  const options = responses[type];
+  const selected = options[Math.floor(Math.random() * options.length)];
+
+  popup("The Nonsense Department", selected[0], selected[1], selected[2]);
+}
+
+
+// RANDOM POPUP
+
+function randomPopup() {
+  const messages = [
+    ["🐣", "Hello again.", "You really came back. We love consistency."],
+    ["💗", "Small announcement.", "Hope is doing an excellent job at being Hope."],
+    ["🫡", "Official notice.", "This website has been approved by absolutely nobody."],
+    ["🌷", "Gentle reminder.", "Drink some water. Unclench your jaw. Breathe."]
+  ];
+
+  const m = messages[Math.floor(Math.random() * messages.length)];
+
+  popup("HopeOS", m[0], m[1], m[2]);
+}
+
+
+// FAKE SYSTEM ERROR
+
+function systemError() {
+  popup(
+    "SYSTEM ERROR 404",
+    "💗",
+    "Compliments not found.",
+    "Actually, that's a lie. We just ran out of ways to explain how lovely you are.",
+    "I'll accept that ♡"
+  );
+}
+
+
+// PERSONAL LETTER
+
+function openLetter() {
+  popup(
+    "A letter from Desmond",
+    "💌",
+    "Hey, Hope.",
+    `I know this little website is completely unnecessary, but I wanted to make you something.
+
+I hope it gives you a little reason to smile, even if it's just for a few seconds.
+
+I don't always have the perfect words, and sometimes I probably annoy you more than I should, but I hope you never forget that I appreciate having you in my life.
+
+I hope life is gentle with you. I hope you find reasons to laugh on the days that feel a little heavier, and I hope you never feel like you have to be okay all the time.
+
+Anyway, that's enough seriousness from this website.
+
+Go drink some water, pretty girl.
+
+Love,
+Desmond ♡`,
+    "Read that again ♡"
+  );
+}
+
+
+// CLOCK
+
+function updateClock() {
+  const now = new Date();
+
+  document.getElementById("clock").textContent =
+    now.toLocaleTimeString("en-ZA", {
+      hour: "2-digit",
+      minute: "2-digit"
+    });
+}
+
+updateClock();
+setInterval(updateClock, 1000);
+
+
+// FLOATING HEARTS
+
+function createHeart() {
+  const heart = document.createElement("div");
+
+  heart.className = "heart";
+  heart.textContent = ["♡", "♥", "✧"][Math.floor(Math.random() * 3)];
+
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.fontSize = (12 + Math.random() * 20) + "px";
+  heart.style.animationDuration = (7 + Math.random() * 7) + "s";
+
+  document.body.appendChild(heart);
+
+  setTimeout(() => heart.remove(), 15000);
+}
+
+setInterval(createHeart, 1000);
+
+
+// CLOSE WHEN CLICKING OUTSIDE
+
+document.getElementById("overlay").addEventListener("click", function(e) {
+  if (e.target === this) closePopup();
+});
+
+</script>
+
+</body>
+</html>
